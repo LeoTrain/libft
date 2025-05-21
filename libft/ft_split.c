@@ -11,94 +11,75 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
-static size_t	count_words(const char *s, char c)
+size_t	ft_count_words(const char *s, char c)
 {
-	size_t	i;
-	size_t	words;
+	size_t	count;
+	int		in_word;
 
-	i = 0;
-	words = 0;
-	while (s[i])
+	count = 0;
+	in_word = 0;
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c && s[i] != 0)
+		if (*s != c && in_word == 0)
 		{
-			words++;
-			while (s[i] != c && s[i] != 0)
-				i++;
+			in_word = 1;
+			count++;
 		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
-	return (words);
+	return (count);
 }
 
-static char	*copy_str(const char *s, size_t start, size_t end)
+int	ft_word_len(const char *s, char c)
+{
+	int	len;
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+void	*ft_free_split(char **result)
 {
 	size_t	i;
-	char	*dest;
-
-	dest = (char *)malloc((end - start + 1) * sizeof(char));
-	if (!dest)
-		return (NULL);
 	i = 0;
-	while (start + i < end)
+	while (result[i])
 	{
-		dest[i] = s[start + i];
+		free(result[i]);
 		i++;
 	}
-	dest[i] = 0;
-	return (dest);
-}
-
-static void	free_final(char **final, size_t i)
-{
-	while (i >= 0)
-	{
-		free(final[i]);
-		i--;
-	}
-}
-
-static void	process_str(const char *s, const char c, char **final)
-{
-	unsigned int	start_of_word;
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		start_of_word = i;
-		while (s[i] != c && s[i] != 0)
-			i++;
-		if (i > start_of_word)
-		{
-			final[j] = copy_str(s, start_of_word, i);
-			if (!final[j])
-			{
-				free_final(final, j);
-				return ;
-			}
-			j++;
-		}
-	}
-	final[j] = 0;
+	free(result);
+	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**final;
-	size_t	word_count;
+	char	**result;
+	size_t	i;
+	size_t	j;
+	size_t	count;
 
-	word_count = count_words(s, c);
-	final = (char **)malloc((word_count + 1) * sizeof(char *));
-	if (!final)
+	if (!s)
 		return (NULL);
-	process_str(s, c, final);
-	return (final);
+	count = ft_count_words(s, c);
+	result = (char **)ft_calloc(count + 1, sizeof(char *));
+	if (!result)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (i < count)
+	{
+		while (*s == c && *s)
+			s++;
+		result[i] = ft_substr(s, 0, ft_word_len(s, c));
+		if (!result[i])
+			return (ft_free_split(result));
+		s += ft_word_len(s, c);
+		i++;
+	}
+	result[i] = NULL;
+	return (result);
 }

@@ -12,51 +12,25 @@
 
 #include "libft.h"
 
-static int	ft_isspace(int c)
-{
-	return (c == ' ' || c == '\t' || c == '\n' || \
-	c == '\v' || c == '\f' || c == '\r');
-}
-
-static int	ft_isplus_isminus(int c)
-{
-	return (c == '-' || c == '+');
-}
-
-static int	check_atoi_min(const char *nptr)
-{
-	if (nptr[0] == '2' && nptr[1] == '1' && nptr[2] == '4' && nptr[3] == '7' && \
-		nptr[4] == '4' && nptr[5] == '8' && nptr[6] == '3' && nptr[7] == '6' && \
-		nptr[8] == '4' && nptr[9] == '8')
-		return (1);
-	return (0);
-}
-
 int	ft_atoi(const char *nptr)
 {
-	int		i;
-	int		result;
 	int		sign;
+	long	result;
 
-	if (!nptr)
-		return (0);
-	i = 0;
-	result = 0;
 	sign = 1;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (ft_isplus_isminus(nptr[i]))
+	result = 0;
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (nptr[i] == '-')
+		if (*nptr == '-')
 			sign = -1;
-		i++;
+		nptr++;
 	}
-	if (sign == -1 && check_atoi_min(nptr + i))
-		return (-2147483648);
-	while (ft_isdigit(nptr[i]))
+	while (ft_isdigit(*nptr))
 	{
-		result = (result * 10) + (nptr[i] - '0');
-		i++;
+		result = result * 10 + (*nptr - '0');
+		nptr++;
 	}
 	return (result * sign);
 }
