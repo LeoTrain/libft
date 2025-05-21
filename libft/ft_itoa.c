@@ -12,85 +12,45 @@
 
 #include "libft.h"
 
-static int	ft_get_count(int n)
+int	ft_numlen(long n)
 {
-	int	count;
-
-	count = 0;
+	int	len;
+	len = 0;
+	if (n == 0)
+		return (1);
 	while (n > 0)
 	{
 		n /= 10;
-		count++;
+		len++;
 	}
-	return (count);
-}
-
-static void	ft_set_ismax(char *str, int is_max)
-{
-	if (is_max)
-		str[1] = '2';
-}
-
-static char	*itoa_minus(int n)
-{
-	int		count;
-	int		is_max;
-	char	*str;
-
-	n = -n;
-	is_max = 0;
-	if (n == -2147483648)
-	{
-		is_max = 1;
-		n = 147483648;
-	}
-	count = ft_get_count(n);
-	str = (char *)malloc((count + 1 + is_max) * sizeof(char));
-	if (!str)
-		return (NULL);
-	str[0] = '-';
-	ft_set_ismax(str, is_max);
-	str[count + is_max + 1] = 0;
-	while (count > 0)
-	{
-		str[count + is_max] = (n % 10) + 48;
-		n /= 10;
-		count--;
-	}
-	return (str);
-}
-
-static char	*ft_for_0(void)
-{
-	char	*str;
-
-	str = (char *)malloc(2 * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	str[0] = '0';
-	str[1] = '\0';
-	return (str);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	int		count;
 	char	*str;
+	int		len;
+	int		sign;
+	long	num;
 
-	if (n < 0)
-		return (itoa_minus(n));
-	else if (n == 0)
-		return (ft_for_0());
-	count = ft_get_count(n);
-	str = (char *)malloc((count + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	str[count] = 0;
-	while (count > 0)
+	num = n;
+	sign = 1;
+	if (num < 0)
 	{
-		str[count - 1] = (n % 10) + 48;
-		n /= 10;
-		count--;
+		num = -num;
+		sign = -1;
+	}
+	len = ft_numlen(num) + (sign == -1);
+	str = (char *)ft_calloc(len + 1, sizeof(char *));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	if (sign == -1)
+		str[0] = '-';
+	while (num > 0)
+	{
+		str[--len] = num % 10 + '0';
+		num /= 10;
 	}
 	return (str);
 }
