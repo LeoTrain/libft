@@ -9,3 +9,6 @@ rm -rf $LIB
 rm -rf $LIB_NEW
 mv $LIB_CPY $LIB_NEW
 
+if [ -d "$HEADER_DIR" ]; then
+	cp $LIB/libft.h $HEADER_DIR/
+fi
