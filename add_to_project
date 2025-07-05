@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LIB="libft"
+LIB_CPY="../libft_cpy"
+LIB_NEW="../libft"
+
+cp -r $LIB $LIB_CPY
+rm -rf $LIB
+rm -rf $LIB_NEW
+mv $LIB_CPY $LIB_NEW
+
