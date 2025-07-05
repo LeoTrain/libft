@@ -1,15 +1,21 @@
 #!/bin/bash
 
 LIB="libft"
-LIB_CPY="../libft_cpy"
-LIB_NEW="../libft"
-HEADER_DIR="../headers"
+ROOT=$(pwd)
+LIB_CPY="$ROOT/libft_cpy"
+LIB_NEW="$ROOT/libft"
+HEADER_DIR="$ROOT/headers"
 
 cp -r $LIB $LIB_CPY
 rm -rf $LIB
 rm -rf $LIB_NEW
 mv $LIB_CPY $LIB_NEW
+cd "$ROOT"
 
 if [ -d "$HEADER_DIR" ]; then
 	cp $LIB/libft.h $HEADER_DIR/
+	echo "libft.h copied in $HEADER_DIR/"
+else
+	echo "Directory $HEADER_DIR not found."
 fi
+
