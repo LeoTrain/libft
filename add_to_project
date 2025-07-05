@@ -3,6 +3,7 @@
 LIB="libft"
 LIB_CPY="../libft_cpy"
 LIB_NEW="../libft"
+HEADER_DIR="../headers"
 
 cp -r $LIB $LIB_CPY
 rm -rf $LIB
