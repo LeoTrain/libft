@@ -1,6 +1,7 @@
 #!/bin/bash
 
 LIB="libft"
+cd ..
 ROOT=$(pwd)
 LIB_CPY="$ROOT/libft_cpy"
 LIB_NEW="$ROOT/libft"
