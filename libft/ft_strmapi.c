@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_strmapi applique une fonction a chaque caractere avec son index.
+ * Cree une nouvelle string avec les resultats de f(index, caractere).
+ * Retourne NULL si l'allocation echoue.
+ */
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	char	*result;

@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+ * ft_putnbr_fd ecrit un entier sur le file descriptor donne.
+ * Gere INT_MIN en cas special, puis recursion pour les autres nombres.
+ * n  : L'entier a ecrire.
+ * fd : Le file descriptor (1 = stdout, 2 = stderr, etc.).
+ */
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
@@ -28,6 +34,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + 48;
+	c = (n % 10) + '0';
 	ft_putchar_fd(c, fd);
 }

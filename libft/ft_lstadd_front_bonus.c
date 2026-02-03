@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstadd_front ajoute un noeud au debut de la liste.
+ * lst     : Pointeur vers le pointeur du premier element.
+ * new_lst : Le noeud a ajouter en tete.
+ */
 void	ft_lstadd_front(t_list **lst, t_list *new_lst)
 {
 	if (lst && new_lst)

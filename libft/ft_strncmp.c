@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_strncmp compare les n premiers octets de s1 et s2.
+ * Compare en unsigned char pour gerer les caracteres > 127.
+ * s1      : Premiere string a comparer.
+ * s2      : Deuxieme string a comparer.
+ * n       : Nombre maximum de caracteres a comparer.
+ * retourne: La difference entre les premiers caracteres differents.
+ */
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

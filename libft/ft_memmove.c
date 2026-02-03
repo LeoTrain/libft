@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_memmove copie n octets de src vers dest.
+ * Gere le chevauchement en copiant en arriere si dest > src.
+ * dest    : Pointeur vers la zone destination.
+ * src     : Pointeur vers la zone source.
+ * n       : Nombre d'octets a copier.
+ * retourne: Le pointeur dest original.
+ */
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t			i;

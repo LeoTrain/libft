@@ -11,18 +11,30 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
+/*
+ * ft_substr extrait une sous-string de s.
+ * Commence a l'index start et copie au maximum len caracteres.
+ * Retourne une string vide si start depasse la longueur de s.
+ * s       : La string source.
+ * start   : Index de depart.
+ * len     : Longueur maximale a extraire.
+ * retourne: La sous-string allouee, ou NULL si l'allocation echoue.
+ */
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
+	size_t	s_len;
 
 	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s))
+	s_len = ft_strlen(s);
+	if (start >= s_len)
 		return (ft_strdup(""));
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
+	if (len > s_len - start)
+		len = s_len - start;
 	substr = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!substr)
 		return (NULL);

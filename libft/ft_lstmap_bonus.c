@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstmap cree une nouvelle liste en appliquant f a chaque contenu.
+ * Alloue un nouveau noeud pour chaque resultat de f.
+ * En cas d'echec, libere tout avec del et retourne NULL.
+ * lst : La liste source.
+ * f   : La fonction de transformation.
+ * del : La fonction pour liberer en cas d'erreur.
+ */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;

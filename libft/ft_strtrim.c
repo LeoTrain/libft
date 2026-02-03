@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_strtrim supprime les caracteres de set au debut et a la fin de s1.
+ * Avance start tant que le caractere est dans set.
+ * Recule end tant que le caractere est dans set.
+ * s1      : La string a trim.
+ * set     : Les caracteres a supprimer.
+ * retourne: La sous-string entre start et end, ou NULL si echec.
+ */
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	start;

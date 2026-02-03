@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_strlcat concatene src a la fin de dst avec une taille limite.
+ * Ajoute au maximum size - strlen(dst) - 1 caracteres et termine par '\0'.
+ * dst     : La string destination.
+ * src     : La string source a ajouter.
+ * size    : Taille totale du buffer destination.
+ * retourne: La longueur totale qu'on aurait voulu creer.
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;

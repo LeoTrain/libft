@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstnew cree un nouveau noeud de liste chainee.
+ * content : Le contenu a stocker dans le noeud.
+ * retourne: Le nouveau noeud, ou NULL si l'allocation echoue.
+ */
 t_list	*ft_lstnew(void	*content)
 {
 	t_list	*lst;

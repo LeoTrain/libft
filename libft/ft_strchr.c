@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+/*
+ * ft_strchr cherche la premiere occurrence de c dans la string.
+ * Si c == '\0', retourne un pointeur vers le terminateur de la string.
+ * s       : La string a parcourir.
+ * c       : Le caractere a chercher.
+ * retourne: Pointeur vers le caractere trouve, ou NULL si absent.
+ */
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)

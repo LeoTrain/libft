@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstlast retourne le dernier noeud de la liste.
+ * lst     : Le premier noeud de la liste.
+ * retourne: Le dernier noeud, ou NULL si la liste est vide.
+ */
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)

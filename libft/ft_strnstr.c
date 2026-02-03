@@ -12,24 +12,32 @@
 
 #include "libft.h"
 
+/*
+ * ft_strnstr cherche la sous-string little dans big.
+ * Recherche limitee aux len premiers octets de big.
+ * big     : La string dans laquelle chercher.
+ * little  : La sous-string a trouver.
+ * len     : Nombre maximum de caracteres a parcourir.
+ * retourne: Pointeur vers le debut de la sous-string, ou NULL.
+ */
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	size_t	big_i;
+	size_t	little_j;
 
 	if (!*little)
 		return ((char *)big);
-	i = 0;
-	while (big[i] && i < len)
+	big_i = 0;
+	while (big[big_i] && big_i < len)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && (i + j) < len)
+		little_j = 0;
+		while (big[big_i + little_j] == little[little_j] && (big_i + little_j) < len)
 		{
-			if (!little[j + 1])
-				return ((char *)&big[i]);
-			j++;
+			if (!little[little_j + 1])
+				return ((char *)&big[big_i]);
+			little_j++;
 		}
-		i++;
+		big_i++;
 	}
 	return (NULL);
 }

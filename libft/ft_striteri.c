@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_striteri applique une fonction a chaque caractere sur place.
+ * Passe l'index et l'adresse du caractere a la fonction f.
+ * Modifie directement la string originale.
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t	i;

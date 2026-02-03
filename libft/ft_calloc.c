@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+/*
+ * ft_calloc alloue et initialise a zero un tableau.
+ * Verifie l'overflow avant l'allocation.
+ * nmemb   : Nombre d'elements a allouer.
+ * size    : Taille en octets de chaque element.
+ * retourne: Le tableau alloue, ou NULL si echec.
+ */
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*array;

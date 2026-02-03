@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * ft_isprint verifie si c est un caractere imprimable (32-126).
+ * Inclut l'espace mais pas les caracteres de controle.
+ * c       : Le caractere a verifier.
+ * retourne: 1 si c'est imprimable, 0 sinon.
+ */
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
+	if (c >= ' ' && c <= '~')
 		return (1);
 	return (0);
 }

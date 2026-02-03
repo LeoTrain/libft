@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+/*
+ * ft_memcmp compare les n premiers octets de s1 et s2.
+ * s1      : Premiere zone memoire a comparer.
+ * s2      : Deuxieme zone memoire a comparer.
+ * n       : Nombre d'octets a comparer.
+ * retourne: 0 si identiques, sinon la difference du premier octet different.
+ */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;

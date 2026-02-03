@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstsize compte le nombre de noeuds dans la liste.
+ * lst     : Le premier noeud de la liste.
+ * retourne: Le nombre de noeuds.
+ */
 int	ft_lstsize(t_list *lst)
 {
 	int	count;

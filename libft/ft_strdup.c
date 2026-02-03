@@ -12,20 +12,26 @@
 
 #include "libft.h"
 
+/*
+ * ft_strdup duplique une string avec malloc.
+ * Alloue la memoire necessaire et copie tous les caracteres.
+ * s       : La string a dupliquer.
+ * retourne: La copie allouee, ou NULL si l'allocation echoue.
+ */
 char	*ft_strdup(const char *s)
 {
 	size_t		i;
-	char		*dest;
+	char		*dup;
 
 	i = 0;
-	dest = (char *)malloc(ft_strlen(s)+1);
-	if (dest == NULL)
+	dup = (char *)malloc(ft_strlen(s)+1);
+	if (dup == NULL)
 		return (NULL);
 	while (s[i])
 	{
-		dest[i] = s[i];
+		dup[i] = s[i];
 		i++;
 	}
-	dest[i] = 0;
-	return (dest);
+	dup[i] = '\0';
+	return (dup);
 }

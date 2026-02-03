@@ -12,9 +12,15 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstadd_back ajoute un noeud a la fin de la liste.
+ * Parcourt la liste jusqu'au dernier noeud puis ajoute new_lst.
+ * lst     : Pointeur vers le pointeur du premier element.
+ * new_lst : Le noeud a ajouter a la fin.
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new_lst)
 {
-	t_list	*swap;
+	t_list	*last;
 
 	if (!lst || !new_lst)
 		return ;
@@ -23,8 +29,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new_lst)
 		*lst = new_lst;
 		return ;
 	}
-	swap = *lst;
-	while (swap->next)
-		swap = swap->next;
-	swap->next = new_lst;
+	last = *lst;
+	while (last->next)
+		last = last->next;
+	last->next = new_lst;
 }

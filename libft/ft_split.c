@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_count_words compte le nombre de mots dans s.
+ * Un mot est une suite de caracteres separes par le delimiteur c.
+ * Utilise un flag pour savoir si on est dans un mot ou non.
+ */
 size_t	ft_count_words(const char *s, char c)
 {
 	size_t	count;
@@ -33,6 +38,10 @@ size_t	ft_count_words(const char *s, char c)
 	return (count);
 }
 
+/*
+ * ft_word_len calcule la longueur du mot courant.
+ * Compte les caracteres jusqu'au prochain delimiteur ou fin de string.
+ */
 int	ft_word_len(const char *s, char c)
 {
 	int	len;
@@ -43,6 +52,11 @@ int	ft_word_len(const char *s, char c)
 	return (len);
 }
 
+/*
+ * ft_free_split libere le tableau et toutes ses strings.
+ * Utilise pour cleanup en cas d'echec d'allocation pendant split.
+ * Retourne NULL pour simplifier les return.
+ */
 void	*ft_free_split(char **result)
 {
 	size_t	i;
@@ -57,6 +71,13 @@ void	*ft_free_split(char **result)
 	return (NULL);
 }
 
+/*
+ * ft_split decoupe une string en tableau de strings selon un delimiteur.
+ * 1. Compte le nombre de mots (ft_count_words)
+ * 2. Alloue le tableau de pointeurs + 1 pour NULL
+ * 3. Pour chaque mot : saute les delimiteurs, extrait le mot, avance
+ * Libere tout et retourne NULL si une allocation echoue.
+ */
 char	**ft_split(const char *s, char c)
 {
 	char	**result;

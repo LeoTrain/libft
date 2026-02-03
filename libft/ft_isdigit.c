@@ -10,9 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * ft_isdigit verifie si c est un chiffre (0-9).
+ * c       : Le caractere a verifier.
+ * retourne: 1 si c'est un chiffre, 0 sinon.
+ */
 int	ft_isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

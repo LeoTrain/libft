@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstdelone supprime un noeud en liberant son contenu et le noeud.
+ * Ne modifie pas les liens de la liste (next).
+ * lst : Le noeud a supprimer.
+ * del : La fonction pour liberer le contenu.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)

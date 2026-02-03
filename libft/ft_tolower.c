@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * ft_tolower convertit une majuscule en minuscule.
+ * Les autres caracteres restent inchanges.
+ * c       : Le caractere a convertir.
+ * retourne: La minuscule correspondante, ou c si pas une majuscule.
+ */
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
-		return (c + 32);
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
 	return (c);
 }

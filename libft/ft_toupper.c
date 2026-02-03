@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * ft_toupper convertit une minuscule en majuscule.
+ * Les autres caracteres restent inchanges.
+ * c       : Le caractere a convertir.
+ * retourne: La majuscule correspondante, ou c si pas une minuscule.
+ */
 int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
+	if (c >= 'a' && c <= 'z')
+		return (c - ('a' - 'A'));
 	return (c);
 }

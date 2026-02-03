@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstiter applique une fonction a chaque contenu de la liste.
+ * Parcourt la liste et appelle f sur chaque contenu.
+ * lst : Le premier noeud de la liste.
+ * f   : La fonction a appliquer sur chaque contenu.
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst || !f)

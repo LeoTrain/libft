@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_numlen compte le nombre de chiffres dans un nombre.
+ * n       : Le nombre dont on veut compter les chiffres.
+ * retourne: Le nombre de chiffres (minimum 1 pour 0).
+ */
 int	ft_numlen(long n)
 {
 	int	len;
@@ -27,6 +32,12 @@ int	ft_numlen(long n)
 	return (len);
 }
 
+/*
+ * ft_itoa convertit un entier en string.
+ * n       : L'entier a convertir.
+ * Gere les nombres negatifs en ajoutant '-' au debut.
+ * retourne: La string allouee, ou NULL si l'allocation echoue.
+ */
 char	*ft_itoa(int n)
 {
 	char	*str;

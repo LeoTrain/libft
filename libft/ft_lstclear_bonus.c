@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+/*
+ * ft_lstclear supprime tous les noeuds de la liste.
+ * Libere le contenu de chaque noeud avec del, puis free le noeud.
+ * Met le pointeur de liste a NULL a la fin.
+ * lst : Pointeur vers le pointeur du premier element.
+ * del : La fonction pour liberer le contenu.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current;

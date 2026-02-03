@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_strlcpy copie src dans dest avec une taille limite.
+ * Copie au maximum dstsize - 1 caracteres et ajoute toujours '\0'.
+ * dest    : La string destination.
+ * src     : La string source a copier.
+ * dstsize : Taille du buffer destination.
+ * retourne: La longueur de src (ce qu'on aurait voulu copier).
+ */
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
 	size_t	i;

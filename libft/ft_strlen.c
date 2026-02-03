@@ -12,12 +12,18 @@
 
 #include "libft.h"
 
+/*
+ * ft_strlen calcule la longueur d'une string.
+ * Parcourt la string jusqu'au '\0' et retourne le nombre de caracteres.
+ * s       : La string a mesurer.
+ * retourne: Le nombre de caracteres (sans le '\0').
+ */
 size_t	ft_strlen(const char *s)
 {
-	size_t	size;
+	size_t	len;
 
-	size = 0;
-	while (s[size])
-		size++;
-	return (size);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

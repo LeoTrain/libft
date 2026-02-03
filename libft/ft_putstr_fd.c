@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*
+ * ft_putstr_fd ecrit une string sur le file descriptor donne.
+ * s  : La string a ecrire.
+ * fd : Le file descriptor (1 = stdout, 2 = stderr, etc.).
+ */
 void	ft_putstr_fd(char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));

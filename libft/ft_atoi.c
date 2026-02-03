@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+ * ft_atoi convertit une string en entier.
+ * Ignore les espaces blancs au debut, puis lit le signe optionnel.
+ * nptr    : La string a convertir.
+ * retourne: La valeur entiere convertie.
+ */
 int	ft_atoi(const char *nptr)
 {
 	int		sign;

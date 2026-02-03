@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+ * ft_memcpy copie n octets de src vers dest.
+ * Les zones ne doivent pas se chevaucher (utiliser memmove sinon).
+ * dest    : Pointeur vers la zone destination.
+ * src     : Pointeur vers la zone source.
+ * n       : Nombre d'octets a copier.
+ * retourne: Le pointeur dest original.
+ */
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t				index;

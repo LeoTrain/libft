@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * ft_isascii verifie si c est dans la table ASCII (0-127).
+ * c       : Le caractere a verifier.
+ * retourne: 1 si c'est un caractere ASCII, 0 sinon.
+ */
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

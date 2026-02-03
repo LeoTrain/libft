@@ -12,16 +12,23 @@
 
 #include "libft.h"
 
+/*
+ * ft_strjoin concatene s1 et s2 dans une nouvelle string.
+ * Alloue la memoire pour les deux strings + '\0'.
+ * s1      : Premiere string.
+ * s2      : Deuxieme string.
+ * retourne: La string concatenee, ou NULL si l'allocation echoue.
+ */
 char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*new;
+	char	*joined;
 	size_t	size;
 
-	size = (ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char);
-	new = ft_calloc(size, sizeof(char));
-	if (!new)
+	size = (ft_strlen(s1) + ft_strlen(s2) + 1);
+	joined = ft_calloc(size, sizeof(char));
+	if (!joined)
 		return (NULL);
-	ft_strlcat(new, s1, size);
-	ft_strlcat(new + ft_strlen(s1), s2, size);
-	return (new);
+	ft_strlcat(joined, s1, size);
+	ft_strlcat(joined + ft_strlen(s1), s2, size);
+	return (joined);
 }
