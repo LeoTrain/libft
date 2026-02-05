@@ -13,10 +13,9 @@
 #include "libft.h"
 
 /*
- * ft_isalnum verifie si c est alphanumerique (lettre ou chiffre).
- * Combine ft_isalpha et ft_isdigit.
- * c       : Le caractere a verifier.
- * retourne: 1 si c'est alphanumerique, 0 sinon.
+* ft_isalnum verifie si le charactere passe en parametre et un charactere alphanumerique (lettre ou chiffre).
+ * c			:
+ * returns	: 1 if c is alphanumeric otherwise returns 0.
  */
 int	ft_isalnum(int c)
 {

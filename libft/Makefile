@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I.
 AR = ar rcs
 RM = rm -f
-HEADER = libft.h
+HEADER = libft.h ft_printf/ft_printf.h
 
 SRC_CHAR = ft_isalpha.c \
 			ft_isdigit.c \
@@ -56,13 +56,15 @@ SRC_LIST = 	ft_lstnew_bonus.c \
 			ft_lstiter_bonus.c \
 			ft_lstmap_bonus.c
 
-SRCS = $(SRC_CHAR) $(SRC_STR) $(SRC_MEM) $(SRC_CONV) $(SRC_FD)
-SRCS_BONUS = $(SRC_LIST)
+PRINTF = ft_printf/
+
+SRCS = $(SRC_CHAR) $(SRC_STR) $(SRC_MEM) $(SRC_CONV) $(SRC_FD) $(SRC_LIST)
+# SRCS_BONUS = $(SRC_LIST)
 
 OBJS = $(SRCS:.c=.o)
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+# OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-BONUS_FLAG = .bonus_flag
+# BONUS_FLAG = .bonus_flag
 
 all: $(NAME)
 
@@ -73,17 +75,17 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS) # $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) $(NAME) $(BONUS_FLAG)
+	$(RM) $(NAME) # $(BONUS_FLAG)
 
 re: fclean all
 
-bonus: $(BONUS_FLAG)
+# bonus: $(BONUS_FLAG)
+#
+# $(BONUS_FLAG): $(OBJS) $(OBJS_BONUS)
+# 	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
+# 	@touch $(BONUS_FLAG)
 
-$(BONUS_FLAG): $(OBJS) $(OBJS_BONUS)
-	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
-	@touch $(BONUS_FLAG)
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re # bonus
